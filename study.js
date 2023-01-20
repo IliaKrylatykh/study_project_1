@@ -1,100 +1,76 @@
 "use strict";
 
-// for (let i = 0; i < 3; i++) {
-//   console.log(i);
-//   for (let j = 0; j < 3; j++) {
-//     console.log(j);
-//   }
-// }
+// let a = 5,
+//     b = a;
 
+// b = b + 5;
 
-// let result = '';
-// const length = 117;
+// console.log(b);
+// console.log(a);
 
-// for (let i = 1; i < length; i++) {
+// const obj = {
+//   a: 5,
+//   b: 1
+// };
 
-//   for (let j = 0; j < i; j++) {
-//     result += '*';
-//   }
+// const copy = obj;
 
-//   result += '\n';
-// }
+// copy.a = 10;
 
-// console.log(result);
+// console.log(copy);
+// console.log(obj);
 
-// first:  for (let i = 0; i < 3; i++) {
-//   console.log(`First level: ${i}`);
-//   for (let j = 0; j < 3; j++) {
-//     console.log(`Second level: ${j}`);
-//     for (let k = 0; k < 5; k++) {
-//       if (k === 2) break first;
-//      console.log(`Third level: ${k}`);
-//     }
-//   }
-// }
+function copy(mainObj) {
+  let objCopy = {};
 
+  let key;
+  for (key in mainObj) {
+    objCopy[key] = mainObj[key];
+  }
+  return objCopy;
+}
 
-////////////////////////////////////Function
+const numbers = {
+  a: 2,
+  b: 5,
+  c: {
+    x: 7,
+    y: 4
+  }
+};
 
-// function showFirstMessage(text) {
-//   console.log(text);
-//   let num = 20;
-// }
+const newNumbers = copy(numbers);
 
-// showFirstMessage("Hello World!");
+newNumbers.a = 10;
 
-// const calc = (a, b) => a + b ;
+// console.log(newNumbers);
+// console.log(numbers);
 
+const add = {
+  d: 17,
+  e: 20
+};
 
-// const usdCurr = 28;
-// const eurCurr = 32;
-// const discount = 0.9;
+const clone = (Object.assign({}, add));
 
-// function convert (amount, curr) {
-//   return curr * amount;
-// }
+clone.d = 20;
 
-// function promotion(result) {
-//   console.log(result * discount);
-// }
+// console.log(add);
+// console.log(clone);
 
-// promotion(convert(500, usdCurr));
-// promotion(convert(500, eurCurr));
+// const oldArray = ['a', 'b', 'c'];
+// const newArray = oldArray.slice();
 
+// newArray[1] = 'dsadasf';
+// console.log(newArray);
+// console.log(oldArray);
 
-// function test() {
-//   for (let i = 0; i < 5; i++) {
-//     console.log(i);
-//     if (i === 3) return
-//   }
-//   console.log('done');
-// }
+const video = ['youtube', 'vimeo', 'rutube'],
+      blogs = ['wordpress', 'livejounal', 'blogger'],
+      internet = [...video, ...blogs, 'vk', 'facebook'];
 
-// test();
+console.log(internet);
 
-// function doNothing() {}
-// console.log(doNothing() === undefined);
+const array = ['a', 'b'];
 
-// ///////////////////////////////////////
-
-const str = 'test';
-
-console.log(str.toUpperCase());
-console.log(str);
-
-const fruit = "Some fruit";
-
-console.log(fruit.indexOf("fruit"));
-
-const logg = "Hello world";
-
-console.log(logg.slice(-7, -1));
-
-console.log(logg.substr(6, 5));
-
-const num = 12.4999;
-console.log(Math.round(num));
-
-const test = "12.2px";
-// console.log(parseInt(test));
-console.log(parseFloat(test));
+const newAarray = [...array]; 
